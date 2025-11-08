@@ -14,10 +14,8 @@ export default function SOPSection() {
     onConfirm: null,
   });
 
-  // ✅ Use correct environment variable or fallback to localhost
   const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
-  // ✅ Fetch all SOPs
   const fetchSops = async () => {
     try {
       const res = await fetch(`${API_BASE}/api/admin/sops`);
@@ -28,7 +26,6 @@ export default function SOPSection() {
     }
   };
 
-  // ✅ Handle Upload
   const handleUpload = async (e) => {
     e.preventDefault();
     if (!file) return;
@@ -66,7 +63,6 @@ export default function SOPSection() {
     }
   };
 
-  // ✅ Handle Edit
   const handleEdit = async (sopId) => {
     if (!title.trim()) {
       setModal({
@@ -107,7 +103,6 @@ export default function SOPSection() {
     }
   };
 
-  // ✅ Handle Delete
   const handleDelete = (sopId) => {
     setModal({
       show: true,
@@ -140,7 +135,6 @@ export default function SOPSection() {
     });
   };
 
-  // ✅ Load on mount
   useEffect(() => {
     fetchSops();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -154,7 +148,6 @@ export default function SOPSection() {
         SOP Management
       </h2>
 
-      {/* Upload Form */}
       <form
         onSubmit={handleUpload}
         className="flex flex-wrap items-center gap-3 mb-8"
@@ -180,7 +173,6 @@ export default function SOPSection() {
         </button>
       </form>
 
-      {/* SOP List */}
       {sops.length === 0 ? (
         <p className="text-gray-500 italic text-center py-8">
           No SOPs uploaded yet.

@@ -8,10 +8,10 @@ import {
   GraduationCap,
   LogOut,
 } from "lucide-react";
-import AdminRequests from "../admin/requests/page";
+import AdminRequests from "./components/AdminRequests";
 import BackButton from "../../../components/BackButton";
-import SOPSection from "../admin/sops/page";
-import TasksSection from "../admin/tasks/page";
+import SOPSection from "./components/SOPSection";
+import TasksSection from "./components/TasksSection";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("requests");
