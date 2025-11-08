@@ -8,10 +8,10 @@ import {
   GraduationCap,
   LogOut,
 } from "lucide-react";
-import AdminRequests from "./requests/page";
+import AdminRequests from "../admin/requests/page";
 import BackButton from "../../../components/BackButton";
-import SOPSection from "./sops/page";
-import TasksSection from "./tasks/page";
+import SOPSection from "../admin/sops/page";
+import TasksSection from "../admin/tasks/page";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("requests");
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
     if (activeTab === "students") fetchStudents();
   }, [activeTab]);
 
-  // Simple logout handler (optional)
+  // Simple logout handler
   const handleLogout = () => {
     localStorage.clear();
     window.location.href = "/";

@@ -143,6 +143,7 @@ export default function SOPSection() {
   // ✅ Load on mount
   useEffect(() => {
     fetchSops();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
