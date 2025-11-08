@@ -4,12 +4,6 @@ import { NextResponse } from 'next/server';
 // Define which routes require authentication
 const protectedPaths = ['/dashboard'];
 
-// Role-based route mapping (optional but recommended)
-const roleAccess = {
-  admin: ['/dashboard/admin'],
-  student: ['/dashboard/student'],
-};
-
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   
@@ -28,7 +22,7 @@ export function middleware(request) {
     return NextResponse.redirect(loginUrl);
   }
 
-  // If role-based restriction applies
+  // Role-based access control
   if (pathname.startsWith('/dashboard/admin') && role !== 'admin') {
     return NextResponse.redirect(new URL('/dashboard/student', request.url));
   }
